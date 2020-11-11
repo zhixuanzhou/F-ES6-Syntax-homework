@@ -1,10 +1,5 @@
 const parseData = input => {
-    return input.data.map( i => {
-        const out = {};
-        input.column.forEach( (x, z) => {
-          out[x.name] = i[z];
-        })
-        return out;
-    });
+    return input.data.map(x => input.column.reduce((acc, value, index) => ({...acc, [value.name]: x[index]}), {}));
 }
-export { parseData };
+export {parseData};
+

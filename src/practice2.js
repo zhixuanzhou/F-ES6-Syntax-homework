@@ -1,12 +1,8 @@
 const inject = (items, sections) => {
-    const out = [];
-    items.forEach((i , x) => {
-        const z = sections.find(e => e.index === x);
-        if (z){
-            out.push(z.content)
-        };
-        out.push(i);
+    sections.forEach((section, index) => {
+        items.splice(section.index + index, 0, section.content);
     });
-    return out;
+    return items;
 }
 export { inject };
+
